@@ -32,7 +32,7 @@ const AdminOrderList = (props) => {
             <th>Customer Name</th>
             <th>Order Date</th>
             <th>Price</th>
-            <th>Delete</th>
+            <th>Details</th>
           </tr>
         </thead>
         <tbody>

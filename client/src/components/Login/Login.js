@@ -1,8 +1,9 @@
+// Login.js
 import React, { useState } from "react";
 import axios from "axios";
-import "./Login.scss";
 import { getBaseURL } from "../apiConfig";
 import TokenRefresher from "../Utils/token"; 
+import "./Login.scss";
 
 function Login(props) {
   let [uname, setUname] = useState("");
@@ -24,13 +25,28 @@ function Login(props) {
           if (res.data.length > 0) {
             console.log("Logged in successfully");
             sessionStorage.setItem("isUserAuthenticated", true);
-            const user = res.data[0].isAdmin;
-            sessionStorage.setItem("customerId", res.data[0].userId);
-            sessionStorage.setItem("isAdmin", user ? true : false);
-            sessionStorage.setItem("jwt_token", res.data[0].token);
-            sessionStorage.setItem("jwt_refresh_token", res.data[0].refreshToken);
-            TokenRefresher(res.data[0].refreshToken);
-            props.setUserAuthenticatedStatus(user ? true : false, res.data[0].userId);
+
+            const userData = res.data[0]; // ชุดข้อมูลที่ได้จาก API
+            sessionStorage.setItem("customerId", userData.userId);
+            sessionStorage.setItem("isAdmin", userData.isAdmin);
+            sessionStorage.setItem("jwt_token", userData.token);
+            sessionStorage.setItem("jwt_refresh_token", userData.refreshToken);
+            TokenRefresher(userData.refreshToken);
+
+            // Set User Authentication Status
+            props.setUserAuthenticatedStatus(userData.isAdmin, userData.userId);
+
+            // นำไปสู่หน้าที่เหมาะสมตาม isAdmin
+            if (userData.isAdmin === 3) {
+              // ถ้า isAdmin = 3 ไปที่ AdminOrderList เลย
+              props.navigate("/admin/order-list");
+            } else if (userData.isAdmin) {
+              // ถ้า isAdmin เป็น 1 ไปที่ AdminContainer
+              props.navigate("/admin-dashboard");
+            } else {
+              // ถ้าไม่ใช่ Admin ไปที่ CustomerDashboard
+              props.navigate("/customer-dashboard");
+            }
           } else {
             console.log("User not available");
           }
@@ -77,28 +93,22 @@ function Login(props) {
   }
 
   return (
-    <>
-      <div className="login-container">
-        <h1>Login</h1>
-        <div>
-          <label>E-Mail</label>
-          <input type="text" value={uname} onChange={changeName}></input>
-        </div>
-        <div>
-          <label>Password</label>
-          <input
-            type="password"
-            value={password}
-            onChange={changePass}
-          ></input>
-        </div>
-        {error && <div className="error-message">{error}</div>}
-        <button onClick={handleClick}>Login</button>
-        <div className="register-link" onClick={() => props.navigateToRegisterPage()}>
-          Is New User
-        </div>
+    <div className="login-container">
+      <h1>Login</h1>
+      <div>
+        <label>E-Mail</label>
+        <input type="text" value={uname} onChange={changeName}></input>
       </div>
-    </>
+      <div>
+        <label>Password</label>
+        <input type="password" value={password} onChange={changePass}></input>
+      </div>
+      {error && <div className="error-message">{error}</div>}
+      <button onClick={handleClick}>Login</button>
+      <div className="register-link" onClick={() => props.navigateToRegisterPage()}>
+        Is New User
+      </div>
+    </div>
   );
 }
 
