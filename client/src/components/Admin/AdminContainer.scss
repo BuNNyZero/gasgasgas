@@ -1,7 +1,10 @@
 // AdminContainer.scss
 
 .admin-container {
+    background-color: rgb(255, 255, 255);
+    margin: 20px;
     padding: 20px;
+    border-radius: 10px;
 
     button {
         padding: 10px 20px;
@@ -14,7 +17,9 @@
         transition: background-color 0.3s ease;
 
         &:hover {
+            transition: 0.5s;
             background-color: #0056b3;
+            padding: 12px 22px;
         }
     }
 

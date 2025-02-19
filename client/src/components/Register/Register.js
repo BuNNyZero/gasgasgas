@@ -101,7 +101,7 @@ function Register(props) {
         ></input>
       </div>
       {error && <div className="error-message">{error}</div>}
-      <div className="radio-group">
+      {/* <div className="radio-group">
         <input
           type="radio"
           id="customer"
@@ -121,7 +121,7 @@ function Register(props) {
           onChange={() => updateAdmin("1")}
         />
         <label htmlFor="admin">Admin</label>
-      </div>
+      </div> */}
       <div>
         <button onClick={handleUserRegistration}>Register</button>
       </div>

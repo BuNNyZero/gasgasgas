@@ -1,5 +1,8 @@
 .customer-container {
     margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px
 }
 
 .customer-container button {
@@ -10,6 +13,12 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+
+    &:hover {
+        transition: 0.5s;
+        background-color: #0056b3;
+        padding: 10px 18px;
+    }
 }
 
 .customer-container button:hover {
@@ -20,3 +29,15 @@
     margin-top: 20px;
 }
         // Add styling for login button
+
+.imgs {
+    align-items: center;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 20px;
+}
+
+.im {
+    width: 30%;
+    border-radius: 10px;
+}
