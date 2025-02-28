@@ -1,33 +1,32 @@
-/* ProductListCustomer.css */
-
 .product-list-container {
-    // margin: 20px;
+    padding: 20px;
 }
 
 .product-list-container h1 {
     font-size: 24px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
-.product-list-container table {
-    width: 100%;
-    border-collapse: collapse;
+.product-list-container .card {
+    margin-bottom: 20px;
 }
 
-.product-list-container th,
-.product-list-container td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+.product-list-container .card-img-top {
+    height: 200px;
+    object-fit: cover;
 }
 
-.product-list-container th {
-    background-color: #f2f2f2;
+.product-list-container .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.product-list-container input[type="number"] {
-    width: 60px;
-    padding: 5px;
+.product-list-container .col-md-4 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .product-list-container button {
@@ -36,12 +35,23 @@
     padding: 8px 12px;
     border: none;
     cursor: pointer;
+    width: 100%;
+    text-align: center;
 }
 
 .product-list-container button:hover {
     background-color: #45a049;
 }
-
-.shopping-cart-container {
-    margin-top: 20px;
-}
+.card {
+    border: 1px solid #ccc; /* กรอบของการ์ด */
+    border-radius: 8px; /* มุมของกรอบที่โค้ง */
+    padding: 10px; /* เว้นระยะห่างภายในการ์ด */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* เงาเล็กน้อยรอบการ์ด */
+    margin: 10px; /* ระยะห่างระหว่างการ์ด */
+  }
+  
+  .card img {
+    width: 100%; /* ขยายรูปภาพให้เต็มขนาดการ์ด */
+    border-radius: 4px; /* มุมที่โค้งสำหรับรูปภาพ */
+  }
+  

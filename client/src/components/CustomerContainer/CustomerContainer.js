@@ -12,7 +12,7 @@ const CustomerContainer = (props) => {
 
   return (
     <div>
-      <td className="imgs"><img className="im" src="https://s359.kapook.com/r/600/auto/pagebuilder/8ec136a0-152d-4e48-81a3-23a775830fc0.jpg"></img></td>
+      <td className="imgs"><img className="im" src="https://fi.lnwfile.com/_/fi/_raw/74/p0/92.jpg"></img></td>
     <div className="customer-container">
       <div>
         {isProductsActive ? (

@@ -1,7 +1,7 @@
 // import logo from "./logo.svg";
 import "./LoginRegisterContainer.scss";
 import Login from "../Login/Login"
-import logo from "../../E-Cart.png"
+import baby from "../../baby.png"
 import Register from "../Register/Register";
 import { useState } from "react";
 
@@ -18,7 +18,7 @@ function LoginRegisterContainer(props) {
         <div className="login-Register-container">
             <div className="form-container">
                 <div className="logo">
-                    <img src={logo} alt="Logo" />
+                    <img src={baby} alt="Logo" />
                 </div>
                 {isRegisterUser ? (
                     <Login navigateToRegisterPage={navigateToRegisterPage} setUserAuthenticatedStatus={props.setUserAuthenticatedStatus} />
